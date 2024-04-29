@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Pawekz Travel And Tours</title>
+</head>
+<body>
+    <h3>HomePage | Travel Packages</h3>
+    
+    
+    {% for tour_package in tour_packages %}
+        <div class="card">
+        <h4>{{ tour_package.title }}</h4>
+        <p>{{ tour_package.description }}</p>
+        <p>Duration: {{ tour_package.duration }} days</p>
+        <p>Price: P{{ tour_package.price }}</p>
+        <p>Destination: {{ tour_package.destination }}</p>
+        <a href="{% url 'tour_detail' tour_package.id %}">More Details</a>
+        </div>
+    {% endfor %}
+
+</body>
+</html>
